@@ -1,26 +1,35 @@
 import React from 'react';
-import logo from './logo.svg';
+import todoItem from "./todoItem"
+
 import './App.css';
 
-function App() {
+
+const url = 'https://jsonplaceholder.typicode.com/';
+
+let list = fetch(url + 'todos').then((responce) => {
+  return responce.json();
+})
+
+
+
+function todoList() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <table>
+          <thead>
+          <th>status</th>
+          <th>item</th>
+          <th>user</th>
+          <th>status</th>
+          </thead>
+          <tbody>
+            <todoItem
+                listItem={this.listItem}
+            />
+          </tbody>
+        </table>
     </div>
   );
 }
 
-export default App;
+export default todoList;
